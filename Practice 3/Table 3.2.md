@@ -1,0 +1,21 @@
+# Table 3.2. Methods of the wrapper classes
+
+|                          | Boolean | Byte | Character | Double | Float | Integer | Long | Short | isStatic |
+|--------------------------|:-------:|:----:|:---------:|:------:|:-----:|:-------:|:----:|:-----:|:--------:|
+| byteValue                |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+| doubleValue              |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+| floatValue               |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+| intValue                 |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+| longValue                |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+| shortValue               |         |  x   |           |   x    |   x   |    x    |  x   |   x   |          |
+
+## End of table 3.2
+
+|                          | Boolean | Byte | Character | Double | Float | Integer | Long | Short | isStatic |
+|--------------------------|:-------:|:----:|:---------:|:------:|:-----:|:-------:|:----:|:-----:|:--------:|
+| parseXxx                 |    x    |  x   |           |   x    |   x   |    x    |  x   |   x   |    x     |
+| parseXxx with radix      |         |  x   |           |        |       |    x    |  x   |   x   |    x     |
+| valueOf with radix       |         |  x   |           |        |       |    x    |  x   |   x   |    x     |
+| toString                 |    x    |  x   |     x     |   x    |   x   |    x    |  x   |   x   |          |
+| toString(primitive)      |    x    |  x   |     x     |   x    |   x   |    x    |  x   |   x   |    x     |
+| toString(primitive,radix)|         |      |           |        |       |    x    |  x   |       |    x     |
