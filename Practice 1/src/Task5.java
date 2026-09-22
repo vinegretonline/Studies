@@ -1,10 +1,7 @@
-// Task 7. A method of the class counts the factorial of a number with a loop
-
 import java.util.Scanner;
 
 public class Task5 {
 
-    // Anything above 20! does not fit into a long
     public static long factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Факториал отрицательного числа не определён: " + n);

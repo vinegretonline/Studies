@@ -1,6 +1,3 @@
-// Task 6. The program prints the first 10 numbers of the harmonic series
-// as a formatted table
-
 public class Task4 {
 
     public static void main(String[] args) {

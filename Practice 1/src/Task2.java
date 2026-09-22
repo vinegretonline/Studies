@@ -1,7 +1,3 @@
-// Task 4. The user types the array from the keyboard. The sum is counted twice,
-// with a do while loop and with a while loop, and the largest and the smallest
-// elements are found
-
 import java.util.Scanner;
 
 public class Task2 {

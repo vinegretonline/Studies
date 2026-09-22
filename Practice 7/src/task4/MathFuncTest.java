@@ -5,8 +5,6 @@ public class MathFuncTest {
     public static void main(String[] args) {
         MathCalculable mc1 = new MathFunc();
 
-        // MathCalculable mc2 = new MathCalculable(); - error, you cannot create an instance of an interface
-
         System.out.println("2 в степени 10 = " + mc1.power(2, 10));
         System.out.println("5 в степени 0 = " + mc1.power(5, 0));
         System.out.println("2 в степени -3 = " + mc1.power(2, -3));

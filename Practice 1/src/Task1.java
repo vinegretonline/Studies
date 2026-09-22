@@ -1,5 +1,3 @@
-// Task 3. The array is created by initialization, then the sum and the average are counted
-
 public class Task1 {
 
     public static void main(String[] args) {

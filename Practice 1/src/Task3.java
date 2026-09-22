@@ -1,6 +1,3 @@
-// Task 5. The program prints the command line arguments in a for loop.
-// Arguments are set in Run -> Edit Configurations -> Program arguments
-
 public class Task3 {
 
     public static void main(String[] args) {
