@@ -1,5 +1,5 @@
-// Задание 5. Вывод аргументов командной строки в цикле for
-// Аргументы задаются в Run -> Edit Configurations -> Program arguments
+// Task 5. The program prints the command line arguments in a for loop.
+// Arguments are set in Run -> Edit Configurations -> Program arguments
 
 public class Task3 {
 

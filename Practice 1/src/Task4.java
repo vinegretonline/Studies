@@ -1,4 +1,5 @@
-// Задание 6. Первые 10 чисел гармонического ряда, форматированный вывод
+// Task 6. The program prints the first 10 numbers of the harmonic series
+// as a formatted table
 
 public class Task4 {
 
