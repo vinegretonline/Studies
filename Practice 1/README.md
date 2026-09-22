@@ -1,2 +1,2 @@
-# Практическая работа № 1
-Для Task3 аргументы задаются в Run -> Edit Configurations -> Program arguments.
+# Practical work 1
+Arguments for Task3 are set in Run -> Edit Configurations -> Program arguments.

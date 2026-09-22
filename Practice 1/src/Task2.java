@@ -1,5 +1,6 @@
-// Задание 4. Ввод массива с клавиатуры, сумма циклами do while и while,
-// поиск максимального и минимального элементов
+// Task 4. The user types the array from the keyboard. The sum is counted twice,
+// with a do while loop and with a while loop, and the largest and the smallest
+// elements are found
 
 import java.util.Scanner;
 
