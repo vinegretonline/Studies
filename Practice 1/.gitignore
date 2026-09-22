@@ -1,0 +1,13 @@
+# Compiled output
+out/
+target/
+*.class
+
+# IntelliJ IDEA
+.idea/workspace.xml
+.idea/shelf/
+.idea/usage.statistics.xml
+*.iws
+
+# OS
+.DS_Store
