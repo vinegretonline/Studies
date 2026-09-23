@@ -1,0 +1,11 @@
+// CI smoke test only: makes `runClient` join the local dedicated server right away.
+allprojects {
+    afterEvaluate { p ->
+        def neo = p.extensions.findByName('neoForge')
+        if (neo != null) {
+            neo.runs.named('client').configure {
+                it.programArguments.addAll('--quickPlayMultiplayer', 'localhost:25565')
+            }
+        }
+    }
+}

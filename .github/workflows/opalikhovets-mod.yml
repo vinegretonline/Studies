@@ -5,10 +5,12 @@ on:
     paths:
       - 'opalikhovets-mod/**'
       - '.github/workflows/opalikhovets-mod.yml'
+      - '.github/opalikhovets-smoke/**'
   pull_request:
     paths:
       - 'opalikhovets-mod/**'
       - '.github/workflows/opalikhovets-mod.yml'
+      - '.github/opalikhovets-smoke/**'
   workflow_dispatch:
 
 jobs:
@@ -41,3 +43,36 @@ jobs:
         with:
           name: opalikhovets-mod
           path: opalikhovets-mod/build/libs/*.jar
+
+  # End-to-end check in a real game: dedicated server + client under Xvfb (see .github/opalikhovets-smoke/smoke.sh).
+  smoke-test:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: opalikhovets-mod
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      - name: Install X11 tools
+        run: sudo apt-get update -q && sudo apt-get install -y -q xvfb xdotool imagemagick libgl1-mesa-dri
+
+      - name: Build
+        run: ./gradlew build
+
+      - name: Smoke test (server + client, right-click, photo flash)
+        run: bash ../.github/opalikhovets-smoke/smoke.sh
+
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: opalikhovets-smoke
+          path: opalikhovets-mod/build/smoke/
