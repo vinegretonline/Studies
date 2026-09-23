@@ -106,7 +106,8 @@ rcon "data get entity @e[tag=cam,limit=1] HandItems" > "$OUT/cooldown.txt"
 
 grep -q 'opalikhovets:phone' "$OUT/hand_aiming.txt" || fail "no phone in hand while aiming"
 grep -q 'opalikhovets:phone' "$OUT/after.txt" && fail "phone still in hand after the photo"
-grep -qE 'PhotoCooldown.*: (1[0-9][0-9]|[1-9][0-9]|[1-9])$' "$OUT/after.txt" || fail "cooldown not running after the photo"
+# The response line after the PhotoCooldown query looks like "... has the following entity data: 81".
+grep -A1 'PhotoCooldown' "$OUT/after.txt" | grep -qE 'entity data: [1-9][0-9]*$' || fail "cooldown not running after the photo"
 grep -q 'opalikhovets:phone' "$OUT/cooldown.txt" && fail "photo started again during cooldown"
 cat "$OUT/hand_aiming.txt" "$OUT/after.txt" "$OUT/cooldown.txt"
 
