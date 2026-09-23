@@ -1,0 +1,38 @@
+{
+  "entity.opalikhovets.ambient": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.ambient",
+    "sounds": [
+      { "name": "minecraft:entity.villager.ambient", "type": "event", "pitch": 1.15 }
+    ]
+  },
+  "entity.opalikhovets.hurt": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.hurt",
+    "sounds": [
+      { "name": "minecraft:entity.villager.hurt", "type": "event", "pitch": 1.15 }
+    ]
+  },
+  "entity.opalikhovets.death": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.death",
+    "sounds": [
+      { "name": "minecraft:entity.villager.death", "type": "event", "pitch": 1.15 }
+    ]
+  },
+  "entity.opalikhovets.no": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.no",
+    "sounds": [
+      { "name": "minecraft:entity.villager.no", "type": "event", "pitch": 1.15 }
+    ]
+  },
+  "entity.opalikhovets.phone_out": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.phone_out",
+    "sounds": [
+      { "name": "minecraft:item.spyglass.use", "type": "event", "pitch": 1.3 }
+    ]
+  },
+  "entity.opalikhovets.photo": {
+    "subtitle": "subtitles.opalikhovets.entity.opalikhovets.photo",
+    "sounds": [
+      { "name": "minecraft:ui.button.click", "type": "event", "pitch": 1.6 }
+    ]
+  }
+}

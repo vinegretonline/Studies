@@ -1,0 +1,11 @@
+{
+  "entity.opalikhovets.opalikhovets": "Opalikhovets",
+  "item.opalikhovets.opalikhovets_spawn_egg": "Opalikhovets Spawn Egg",
+  "item.opalikhovets.phone": "Phone",
+  "subtitles.opalikhovets.entity.opalikhovets.ambient": "Opalikhovets mumbles",
+  "subtitles.opalikhovets.entity.opalikhovets.hurt": "Opalikhovets hurts",
+  "subtitles.opalikhovets.entity.opalikhovets.death": "Opalikhovets dies",
+  "subtitles.opalikhovets.entity.opalikhovets.no": "Opalikhovets disagrees",
+  "subtitles.opalikhovets.entity.opalikhovets.phone_out": "Opalikhovets takes out a phone",
+  "subtitles.opalikhovets.entity.opalikhovets.photo": "Camera clicks"
+}

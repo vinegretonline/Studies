@@ -1,0 +1,11 @@
+{
+  "entity.opalikhovets.opalikhovets": "Опалиховец",
+  "item.opalikhovets.opalikhovets_spawn_egg": "Яйцо призыва опалиховца",
+  "item.opalikhovets.phone": "Телефон",
+  "subtitles.opalikhovets.entity.opalikhovets.ambient": "Опалиховец бормочет",
+  "subtitles.opalikhovets.entity.opalikhovets.hurt": "Опалиховцу больно",
+  "subtitles.opalikhovets.entity.opalikhovets.death": "Опалиховец погибает",
+  "subtitles.opalikhovets.entity.opalikhovets.no": "Опалиховец недоволен",
+  "subtitles.opalikhovets.entity.opalikhovets.phone_out": "Опалиховец достаёт телефон",
+  "subtitles.opalikhovets.entity.opalikhovets.photo": "Щелчок камеры"
+}
