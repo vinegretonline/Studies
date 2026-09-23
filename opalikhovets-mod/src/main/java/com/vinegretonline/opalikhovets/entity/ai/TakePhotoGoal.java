@@ -35,7 +35,7 @@ public class TakePhotoGoal extends Goal {
 
     public TakePhotoGoal(OpalikhovetsEntity mob) {
         this.mob = mob;
-        this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
 
     @Override
