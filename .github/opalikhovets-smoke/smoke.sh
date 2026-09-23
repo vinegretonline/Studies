@@ -28,6 +28,7 @@ finish() {
     grep -hiE 'exception|error' "$OUT/server.out" "$OUT/client.out" 2>/dev/null | grep -i opalikhovets | head -n 40
     echo "::endgroup::"
     python3 "$HERE/rcon.py" stop > /dev/null 2>&1
+    kill ${CLIENT_PID:-} ${SERVER_PID:-} ${XVFB_PID:-} 2>/dev/null
     if [ -f "$OUT/sheet.jpg" ]; then
         echo "SCREENSHOT_SHEET_BEGIN"
         base64 -w 120 "$OUT/sheet.jpg"
@@ -42,7 +43,9 @@ finish() {
 }
 
 # --- dedicated server -------------------------------------------------------
+echo "[smoke] starting dedicated server"
 ./gradlew runServer --console=plain > "$OUT/server.out" 2>&1 &
+SERVER_PID=$!
 if ! wait_for "$OUT/server.out" 'Done (' 420; then
     fail "dedicated server did not start"
     finish
@@ -53,16 +56,20 @@ rcon "gamerule spawnRadius 0" "gamerule doDaylightCycle false" "gamerule doMobSp
 grep -q "Summoned new" "$OUT/setup.txt" || fail "summon on dedicated server failed"
 
 # --- client -----------------------------------------------------------------
+echo "[smoke] starting client"
 Xvfb :99 -screen 0 854x480x24 > "$OUT/xvfb.log" 2>&1 &
+XVFB_PID=$!
 export DISPLAY=:99 LIBGL_ALWAYS_SOFTWARE=1
 sleep 2
 ./gradlew runClient --console=plain --init-script "$HERE/quickplay.init.gradle" > "$OUT/client.out" 2>&1 &
+CLIENT_PID=$!
 if ! wait_for "$OUT/server.out" 'joined the game' 600; then
     fail "client did not join the server"
     shot client_state
     convert "$OUT/shots/client_state.png" -quality 70 "$OUT/sheet.jpg" 2>/dev/null
     finish
 fi
+echo "[smoke] client joined"
 sleep 5
 
 # One mob right in front of the player (AI on, cannot walk away), all 4 outfits further back (no AI).
@@ -83,10 +90,13 @@ xdotool mousemove 427 240
 sleep 0.5
 xdotool click 3
 sleep 14
+echo "[smoke] right-click"
 xdotool click 3
 ( sleep 0.5; rcon "data get entity @e[tag=cam,limit=1] HandItems" > "$OUT/hand_aiming.txt" ) &
+HAND_PID=$!
 for i in $(seq -w 0 39); do shot "burst_$i"; sleep 0.05; done
-wait
+# Only wait for the RCON probe: a bare `wait` would also wait for the game processes.
+wait "$HAND_PID"
 sleep 2
 rcon "data get entity @e[tag=cam,limit=1] HandItems" "data get entity @e[tag=cam,limit=1] PhotoCooldown" > "$OUT/after.txt"
 # Clicking during the cooldown must not start another photo.
